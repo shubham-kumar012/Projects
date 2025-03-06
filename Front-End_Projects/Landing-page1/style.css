@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: sans-serif;
+}
+
+html,body {
+    height: 100%;
+    width: 100%;
+    /* background-color: black; */
+    color: rgb(200, 198, 198);
+    background-image: url("image1.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+
+header {
+    display: flex;
+}
+
+/* Adjusting Nav bar */
+.navbar {
+    width: 100vw;
+    display: flex;
+    justify-content: end;
+    /* border: 1px solid white; */
+}
+
+.list-items {
+    font-size: 20px;
+    width: 50%;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    
+}
+
+.nav-item {
+    color: rgb(200, 198, 198);
+    position: relative;
+    /* display: inline-block; */
+    transition: 0.1s ease-in-out;
+}
+
+.nav-item:hover {
+    text-shadow: 0 0 2px white, 0 0 5px red, 0 0 8px white, 0 0 11px white;
+}
+
+.nav-item::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(247, 54, 54);
+    height: 2px;
+    width: 0;
+    left: 50%;
+    bottom: -4px;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    color: rgb(247, 54, 54);
+}
+
+
+/* <------ Mid content ------> */
+.content {
+    display: flex;
+    height: 82vh;
+}
+
+#detail {
+    width: 40%;
+    margin-left: 10%;
+    margin-top: 10%;
+    font-size: larger;
+    line-height: 25px;
+}
+
+#login-button {
+   display: inline-block;
+   text-decoration: none;
+}
+
+#login-button button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 30px;
+    background-color: rgb(247, 54, 54);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+
+#login-button button:hover {
+    background-color: rgb(227, 80, 80);
+}
+
+footer {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#icons {
+    display: flex;
+    justify-content: space-between;
+    width: 15%;
+    font-size: 25px;
+}
+
+#icons i {
+    cursor: pointer;
+    transition: text-shadow 0.1s ease-in-out;
+}
+
+i:hover {
+    color: white;
+    /* text-shadow: X-offset Y-offset Blur-radius Color; */
+    text-shadow: 0 0 2px white, 0 0 5px red, 0 0 8px white, 0 0 11px white;
+}
