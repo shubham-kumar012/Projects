@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "General Sans";
+    box-sizing: border-box;
+}
+
+html,body {
+    height: 100%;
+    width: 100%;
+}
+
+#minicircle {
+    height: 13px;
+    width: 13px;
+    left: -6px;
+    top: -6px;
+    z-index: 9999;
+    border-radius: 50%;
+    background-color: white;
+    position:absolute;
+    transition: all cubic-bezier(0.13, 1, 0.7, 1) .5s;
+    pointer-events: none;
+}
+
+#main {
+    width: 100%;
+    background-color: black;
+}
+
+#hero {
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    position: relative;
+}
+
+#nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 30px 40px;
+    color: #fff;
+
+}
+
+#nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.bounding {
+    overflow: hidden;
+}
+
+.bounding .boundingelem {
+    transform: translateY(100%);
+}
+
+#heading {
+    margin-top: 50px;
+}
+
+#heading h1{
+    margin-left: 50px;
+    padding: 10px;
+    font-family: "General Sans Medium";
+    font-size: 10vw;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 0.7;
+    opacity: 0.6;
+    margin-top: 20px;
+}
+
+#heading #head2 {
+    margin-left: 160px;
+    margin-right: 0;
+}
+
+#heading h5 {
+    text-transform: uppercase;
+    font-size: 1.2vw;
+}
+
+.blocktext {
+    width: fit-content;
+}
+
+.blocktext {
+    text-align: right;
+}
+
+#availability {
+    margin-top: 8vw;
+    padding: 0px 40px;
+}
+
+#availability h1 {
+    text-transform: uppercase;
+    font-size: 1.3vw;
+    text-align: right;
+}
+
+#herofooter {
+    width: 100%;
+    position:absolute;
+    bottom: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.3vw;
+    padding: 0px 3vw 0px 3vw;
+    text-transform: uppercase;
+}
+
+#herofooter a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+#iconset {
+    display: flex;
+    width: 5vw;
+    justify-content: space-around;
+}
+
+#iconset .circle {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #888;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+#second {
+    padding-top: 200px;
+    height: 100%;
+    width: 88%;
+    padding-left: 50px;
+    padding-bottom: 30px;
+    background-color: black;
+    color: white;
+}
+
+.elem {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #888;
+}
+
+.elem h1 {
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-size: 6.5vw;
+    text-transform: uppercase;
+    opacity: 0.7;
+    font-weight: 600;
+}
+
+.elem h5 {
+    opacity: 0.7;
+}
+
+.elemlast {
+    border-bottom: 1px solid #888;
+    margin-bottom: 100px;
+}
+
+#btn1 {
+    font-size: 15px;
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    border-radius: 100px;
+    padding: 10px;
+}
+
+#btn1 :hover {
+    background-color: #888;
+}
+
+.elem img {
+    transform: translate(-200px, -150px);
+    border-radius: 20px;
+    opacity: 0;
+    height: 140%;
+    z-index: 999;
+    position: absolute;
+    pointer-events: none;
+}
+
+#about {
+    width: 100%;
+    padding: 5vw;
+    padding-left: 4vw;
+    margin-bottom: 5vw;
+}
+
+#about img {
+    height: 18vw;
+    margin-left: 25vw;
+}
+
+#info {
+    display: flex;
+    align-items: right;
+    padding: 5vw;
+}
+
+#info img {
+    border-radius: 50%;
+}
+
+#para {
+    font-size: large;
+    width: 30vw;
+    margin-left: 5vw;
+    color: white;
+    margin-bottom: 30px;    
+}
+
+#btn2 {
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 10px 15px 10px 15px;
+    border-radius: 100px;
+    margin-left: 4.8vw; 
+}
+
+#remainingInfo .first {
+    color: #888;
+    text-transform: uppercase;
+}
+
+#remainingInfo .second {
+    color: white;
+    text-transform: uppercase;
+}
+
+#footer {
+    color: white;
+    font-weight: 500;
+    font-size: medium;
+    padding: 1vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    width: 15vw;
+}
+
+.socialmedia {
+    padding: 1vw;
+    width: 40vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.socialmedia a{
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
