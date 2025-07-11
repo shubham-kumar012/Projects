@@ -6,7 +6,7 @@ A modern, minimal, and animated landing page built with **HTML**, **CSS**, and *
 
 ## 🚀 Live Demo
 
-👉 [Click here to view the live site](https://your-live-link.com)
+👉 [Click here to view the live site](https://shubham-kumar012.github.io/Projects/monovibe-landing/)
 
 
 
