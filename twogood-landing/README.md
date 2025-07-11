@@ -7,7 +7,7 @@ It replicates the original layout, smooth interactions, and animations using mod
 
 ## Live Demo
 
-🔗 [View Live Project](https://your-username.github.io/Projects/twogoodco-clone/)
+🔗 [View Live Project](https://shubham-kumar012.github.io/Projects/twogood-landing/)
 
 
 ---
@@ -16,7 +16,7 @@ It replicates the original layout, smooth interactions, and animations using mod
 
 | Desktop View | Mobile View |
 |--------------|-------------|
-| ![Desktop](./desktop-screenshot.png) | ![Mobile](./assets/mobile-screenshot.png) |
+| ![Desktop](./desktop-screenshot.PNG) | ![Mobile](./assets/mobile-screenshot.PNG) |
 
 ---
 
@@ -42,14 +42,6 @@ It replicates the original layout, smooth interactions, and animations using mod
 | **GSAP**            | Animation framework            |
 | **GSAP ScrollTrigger** | Scroll-based animations    |
 | **Git & GitHub**    | Version control + deployment  |
-
----
-
-## 📸 Screenshots
-
-| 🖥️ Desktop | 📱 Mobile |
-|------------|-----------|
-| ![Desktop View](./screenshot-desktop.png) | ![Mobile View](./screenshot-mobile.png) |
 
 --- 
 
