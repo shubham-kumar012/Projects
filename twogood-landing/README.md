@@ -16,7 +16,8 @@ It replicates the original layout, smooth interactions, and animations using mod
 
 | Desktop View | Mobile View |
 |--------------|-------------|
-| ![Desktop](./desktop-screenshot.PNG) | ![Mobile](./assets/mobile-screenshot.PNG) |
+| ![Desktop](./desktop-screenshot.PNG) | 
+| ![Mobile](./mobile-screenshot.PNG) |
 
 ---
 
