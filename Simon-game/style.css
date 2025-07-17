@@ -17,10 +17,31 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 99;
     background: transparent;
     backdrop-filter: blur(20px);
     display: fixed;
+}
+
+#game-over {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index: 99;
+    position: absolute;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    top: 0px;
+    display: none;
+}
+
+#game-over h1 {
+    font-size: 60px;
+    color: red;
+    margin-top: 60px;
+    
 }
 
 .game-window {

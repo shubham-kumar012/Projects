@@ -26,6 +26,25 @@ window.addEventListener("keypress", () => {
 
 }, {once: true});
 
+// restart window after lose
+function restart(gameOverScreen) {
+    lv.innerText = "Level 1";
+    window.addEventListener("keypress", () => {
+        gameSeq = [];
+        userSeq = [];
+
+        gameOverScreen.style.display = "none";
+        level = 1;
+        let randomIdx = Math.floor(Math.random() * 4);
+        let randomBtn = allBtns[randomIdx];
+        setTimeout(flash, 800, randomBtn);
+
+        let btnColor = randomBtn.getAttribute("id");
+        gameSeq.push(btnColor);
+    }, {once: true})
+}
+
+
 
 // level up
 function levelUp() {
@@ -79,7 +98,9 @@ function checkAns(idx) {
             levelUp();
         }
     } else {
-        lv.innerText = "Game Over! Press any key to start";        
+        let gameOverScreen = document.querySelector("#game-over");
+        gameOverScreen.style.display = "flex";
+        restart(gameOverScreen);     
     }
 
 }
@@ -88,7 +109,7 @@ function checkAns(idx) {
 // When user click to the button
 function btnPress() {
     flash(this);
-    
+
     let btnColor = this.getAttribute("id");
     userSeq.push(btnColor); 
     checkAns(userSeq.length-1);
