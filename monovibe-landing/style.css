@@ -210,6 +210,8 @@ html,body {
 
 #about img {
     height: 18vw;
+    width: 18vw;
+    object-fit: cover;
     margin-left: 25vw;
 }
 
