@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloudee</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+</style>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+</head>
+<body>
+
+    <div id="logo"><img id="logo-icon" src="images/Logo.png" alt=""></div>
+    
+    <div id="gradient"></div>
+
+    <div class="main">
+        <div class="search-box">
+            <input type="text" placeholder="Enter Your City...">
+            <div id="search-btn" type="button">
+                <img src="/images/search.png" alt="">
+            </div>
+        </div>
+        <div class="error">
+            <p id="message">Enter the valid city name...</p>
+        </div>
+        
+
+        <div class="weather-container">
+            <div class="weather-image">
+                <img id="weather-icon" src="images/clear.png" alt="">
+            </div>
+            <div class="weather-info">
+                <div><span id="weather-temp">20°C</span></div>
+                <div><span id="weather-condition">Clear</span></div>
+                <div><span id="weather-place"><span id="city">Delhi</span>, <span id="state">NCR</span></span></div>
+                <div class="humidity-wind">
+                    <div class="humidity">
+                        <img src="images/humidity.png" alt="">
+                        <div class="humidity-inner">
+                            <span id="humidity-value">70%</span>
+                            <span id="humidity-text">Humidity</span>
+                        </div>
+                    </div>
+                    <div class="wind">
+                        <img src="images/wind.png" alt="">
+                        <div class="wind-inner">
+                            <span id="wind-value">7 Km/h</span>
+                            <span id="wind-text">Wind Speed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

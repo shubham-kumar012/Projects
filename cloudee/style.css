@@ -1,0 +1,293 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 300;
+}
+
+:root {
+    --inputWidth: 2.5rem;
+    --bgColor: #3169A8;
+}
+
+html,body {
+    height: 100%;
+    width: 100%;
+    background-color: var(--bgColor);
+    position: relative;
+    padding: 10px;
+}
+
+#logo {
+    position: absolute;
+    z-index: 99;
+    width: 120px;
+}
+
+#logo img {
+    width: 100%;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    z-index: 10;
+    background: transparent;
+}
+
+/* <------- Making Gradient Effect -------> */
+#gradient {
+    height: 90%;
+    width: 90%;
+    background-image: radial-gradient(white, var(--bgColor) 70%);
+    filter: blur(200px);
+    opacity: .7;
+    position: relative;
+    top: -20%;
+    left: -30%;
+    position: fixed;
+}
+
+
+/* <------- Styling for Search Box -------> */
+
+
+.search-box {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-box input {
+    height: var(--inputWidth);
+    width: 350px;
+    padding: 5px 2px 5px 20px;
+    border-radius: 10px 0px 0px 10px;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    background-color: #f8f8f8;
+}
+
+.search-box input:focus::placeholder {
+    color: transparent;
+}
+
+#search-btn {
+    border-left: none;
+    height: 20px;
+    width: 20px;
+    height: var(--inputWidth);
+    width: var(--inputWidth);
+    border-radius: 0px 10px 10px 0px;
+    background-color: #f8f8f8;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#search-btn img {
+    width: 90%;
+    height: 100%;
+}
+
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(232, 72, 72);
+    font-weight: 600;
+    font-size: 17px;
+    display: none;
+}
+
+
+/* <------- Styling for weather container -------> */
+.weather-container {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f8f8f8;
+    gap: max(5vw);
+    display: none;
+}
+
+.weather-image {
+    height: 100%;
+    width: 250px;
+    display: flex;
+    align-items: center;
+}
+
+.weather-image img {
+    width: 100%;
+}
+
+
+.weather-info {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 100%;
+    padding: 10px;
+}
+
+#weather-temp {
+    font-size: 90px;
+    font-weight: 150;
+}
+
+#weather-condition {
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+#weather-place {
+    font-size: 1.2rem;
+}
+#weather-place #city {
+    opacity: 0.9;
+}
+#weather-place #state {
+    font-weight: 400;
+}
+
+.humidity-wind {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-top: 10%;
+    gap: min(5px);
+}
+
+/* <----- Styling for humidity section -----> */
+
+.humidity {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+} 
+
+#humidity-value {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+#humidity-text {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.humidity img {
+    height: 62%;
+}
+
+.humidity-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+/* <----- Styling for wind section -----> */
+
+.wind {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+} 
+
+#wind-value {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+#wind-text {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.wind img {
+    height: 62%;
+}
+
+.wind-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media (max-width: 600px) {
+    .main {
+        padding-top: 100px;
+    }
+
+    .weather-container {
+        gap: 0;
+        height: 90%;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .weather-info {
+        max-height: 300px;
+    }
+
+    .weather-image {
+        height: 200px;
+        width: 200px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* <---- For search box ----> */
+
+    .search-box input {
+        width: 300px;
+        font-size: 1.1rem;
+    }
+
+    
+    
+}
+
+@media (max-width: 360px) {
+    /* <---- For search button ----> */
+    .search-box input {
+        width: 80%;
+        font-size: 5vw;
+    }
+
+    #search-btn {
+        height: 20%;
+        width: 20%;
+    }   
+    
+}
+
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.3s ease;
+}
+
