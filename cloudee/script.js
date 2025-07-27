@@ -1,6 +1,6 @@
 const apiKey = "d3dbf8930568543e3a47a4d9beced621";
 let url = `https://api.openweathermap.org/data/2.5/weather?units=metric&limit=1&appid=`;
-let urlPlace = "http://api.openweathermap.org/geo/1.0/direct?limit=1&appid=";
+let urlPlace = "https://api.openweathermap.org/geo/1.0/direct?limit=1&appid=";
 let cityName;
 
 const searchBtn = document.querySelector("#search-btn");
