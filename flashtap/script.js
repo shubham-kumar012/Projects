@@ -135,7 +135,8 @@ function startGame() {
     score = 0;
     lives = 3;
     scoreDisplay.textContent = score;
-    
+
+    countdownSound.currentTime = 0;
     countdownSound.play();
 
     let countdown = 3;
