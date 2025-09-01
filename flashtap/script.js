@@ -1,14 +1,14 @@
 var timeDisplay = document.getElementById('time');
-var scoreDisplay = document.getElementById('score'); // used
+var scoreDisplay = document.getElementById('score');
   // used
 
 // Play and Reset buttons
-const resetButton = document.getElementById('reset-btn'); // used 
-const playButton = document.getElementById('play-btn'); // used
+const resetButton = document.getElementById('reset-btn');  
+const playButton = document.getElementById('play-btn');
 
 // Countdown overlay element
-const countdownOverlay = document.getElementById('countdown-overlay'); // used 
-const countdownText = document.getElementById('countdown-text'); // used
+const countdownOverlay = document.getElementById('countdown-overlay');
+const countdownText = document.getElementById('countdown-text');
 
 // Pause overlay element
 const pauseOverlay = document.getElementById('pause-overlay');
@@ -30,6 +30,7 @@ const stageChangeSound = new Audio('./sounds/stageChange.wav');
 const gameOverSound = new Audio('./sounds/gameover.wav');
 const clickSound = new Audio('./sounds/click.wav');
 
+// instruction screen elements
 const gotitBtn = document.getElementById('gotit-btn');
 const instructionOverlay = document.getElementById('instruction-overlay');
 const instructionBtn = document.getElementById('instruction-btn');
@@ -48,7 +49,7 @@ var gameSpeed = 1000;
 var score = 0;
 
 
-
+// moving target randomly
 function moveTarget() {
     if(lives <= 0) return;
 
@@ -127,7 +128,7 @@ target.addEventListener('click', function() {
     hideTarget();
 });
 
-
+// main game start function
 function startGame() {
     if(isGameRunning) return;
     isGameRunning = true;
@@ -323,7 +324,7 @@ function endGame() {
 
 }
 
-
+// lose life function
 function loseLife() {
     // lose life animation
     if(lives > 0) {
@@ -452,7 +453,8 @@ window.addEventListener('load', function() {
         instructionOverlay.classList.remove('hidden');
     }
 })
-    
+
+// got it button click handler
 gotitBtn.addEventListener('click', function() {
     gsap.to(instructionOverlay, 
         { opacity: 0, duration: 0.4, ease: 'power2.out',
@@ -466,6 +468,7 @@ gotitBtn.addEventListener('click', function() {
     );
 })
 
+// instruction button handler
 instructionBtn.addEventListener('click', function() {
     if(!instructionOverlay.classList.contains('hidden') || isGameRunning) return;
 
