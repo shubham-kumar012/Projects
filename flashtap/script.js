@@ -135,6 +135,7 @@ function startGame() {
     score = 0;
     lives = 3;
     scoreDisplay.textContent = score;
+    
     countdownSound.play();
 
     let countdown = 3;
@@ -164,8 +165,7 @@ function startGame() {
     let countdownInterval = setInterval(() => {
         countdown--; 
 
-        // countdownSound.currentTime = 0; // rewind
-        // countdownSound.play();
+        
         if(countdown > 0) {
             animateNumber(countdown);
         } else {
