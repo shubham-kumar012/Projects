@@ -69,7 +69,7 @@ A fast-paced reaction game where players must tap the moving target before time 
 --- 
 
 ## 🔴Live Demo
-🔗 [View Live Project](https://flashtap-bs7wvhm3g-shubhams-projects-84579036.vercel.app/)
+🔗 [View Live Project](https://flashtap-bs7wvhm3g-shubhams-projects-84579036.vercel.app?_vercel_share=8OEQIjfUj0fXoyBbSBYXtojONYuUqHBq)
 
 ---
 
