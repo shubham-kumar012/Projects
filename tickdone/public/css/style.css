@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "PT Sans", sans-serif;
+}
+
+.main-image {
+    background-image: url("https://thumbs.dreamstime.com/b/abstract-background-nature-pattern-light-green-colors-minimal-wallpaper-patterns-design-motifs-inspired-elements-298393621.jpg?w=992");
+    width: 100vw;
+    height: 25vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    color: white;
+    font-size: 64px;
+}
+
+.task-container {
+    padding-top: 50px;
+    height: 74vh;
+    width: 100vw;
+}
+
+.task-container-lv2 {
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+.task-container-lv2:-webkit-scrollbar {
+    display: none;
+}
+
+.task-container-lv3 {
+    width: 80%;
+    height: 60px;
+}
+
+.task-heading {
+    height: 16%;
+}
+
+.task-container-lv3.completed  {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
