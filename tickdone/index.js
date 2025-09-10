@@ -6,7 +6,7 @@ const Task = require("./models/tasks.js");
 const methodOverride = require("method-override");
 const dotenv = require("dotenv");
 
-dotenv.config();
+dotenv.config({path: path.join(__dirname, ".env") });
 
 // setup
 app.set("views", path.join(__dirname, "views"));
@@ -41,7 +41,6 @@ app.get("/", (req, res) => {
 
 app.get("/tasks", async (req, res) => {
     let tasks = await Task.find();
-    console.log("data from DB: ", tasks);
     res.render("index", {tasks});
 });
 
