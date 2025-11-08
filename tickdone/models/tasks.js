@@ -14,6 +14,12 @@ const taskSchema = new mongoose.Schema({
     addedTime: {
         type: Date,
         required: true
+    },
+    // link the task with the user
+    user : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User", // reference the User model
+        required: true,
     }
 });
 

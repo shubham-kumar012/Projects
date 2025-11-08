@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickdone</title>
+</head>
+
+<body>
+    <%- include("../partials/header") %>
+
+        <div class="container-sm task-container d-flex flex-column align-items-center">
+
+            <!-- Register Success Popup -->
+            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                <div id="myToast" class="toast align-items-center text-white bg-success border-0" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            Register Successful!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Register header -->
+            <div
+                class="task-heading title-task task-container-inner d-flex justify-content-center align-items-center border rounded p-3 mb-2 w-50">
+                <h1 class="fs-1">Register</h1>
+            </div>
+
+            <!-- Register Container -->
+            <div class="container-sm w-50 h-75 d-flex justify-content-around align-items-center border rounded flex-column">
+
+                <!-- Register Form -->
+                <form method="POST" action="/register" class="w-100 h-100 d-flex justify-content-around align-items-center flex-column" >
+                    <div class="container-sm h-75 d-flex justify-content-around align-items-center flex-column">
+                        <!-- User's Fist Name and Last Name -->
+                        <div class="input-group flex-nowrap gap-2 mb-2">
+                            <input type="text" name="firstName" class="form-control" placeholder="First Name" required>
+                            <input type="text" name="lastName" placeholder="Last Name" class="form-control" required>
+                        </div>
+                        
+                        <!-- User's Email & Password -->
+                        <input type="email" name="email" placeholder="Email Address" class="form-control mb-2" required>
+                        <input type="password" name="password" placeholder="Passowrd" class="form-control mb-2" required>
+
+                        <button class="add-btn btn btn-primary btn-sm mx-3 w-25" type="submit">Register</button>
+                        <div >Already have an account? <a href="/login">Login</a></div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/add.js"></script>
+</body>
+
+</html>

@@ -4,13 +4,25 @@ const app = express();
 const path = require("path");
 const Task = require("./models/tasks.js");
 const methodOverride = require("method-override");
-const dotenv = require("dotenv");
+const bcrypt = require('bcrypt');
+const session = require("express-session");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const User = require("./models/user.js");
 
+// Setup .env file
+const dotenv = require("dotenv");
 dotenv.config({path: path.join(__dirname, ".env") });
 
-// setup
+// routes
+const taskRoutes = require("./routes/tasks.js");
+const authRoutes = require("./routes/auth.js");
+
+// Views Setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+
+// Middleware
 app.use(express.static(path.join(__dirname, "public", "css")));
 app.use(express.static(path.join(__dirname, "public", "js")));
 app.use(express.urlencoded({extended : true}));
@@ -22,97 +34,96 @@ const dbUrl = process.env.MONGODB_URL;
 
 // Setup mongo server
 main()
-    .then((res) => {
-        console.log("connection successful!");
-    })
-    .catch((err) => {
-        console.log(err);
-    })
+.then((res) => {
+    console.log("connection successful!");
+})
+.catch((err) => {
+    console.log(err);
+})
 
 async function main() {
     await mongoose.connect(dbUrl);
 }
 
 
-// --- Index Route (show all task) ---
-app.get("/", (req, res) => {
-    res.redirect("/tasks");
-});
+// Session Setup
+app.use(session({
+    secret: "loyalPetDog",
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false, maxAge: 600000}
+}))
 
-app.get("/tasks", async (req, res) => {
-    let tasks = await Task.find();
-    res.render("index", {tasks});
-});
 
-// --- New Route (Add new task) ---
-// Step: 1
-app.get("/tasks/add", (req, res) => {
-    res.render("addTask");
-})
-// Step: 2
-app.post("/tasks/add", (req, res) => {
-    let {taskName} = req.body;
+// Passport setup
+app.use(passport.initialize());
+app.use(passport.session());
 
-    let newTask = new Task({
-        taskName: taskName,
-        addedTime: new Date()
-    })
-
-    newTask
-        .save()
-        .then((res) => {
-            console.log("new task added!");
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-
-    res.status(200).json({message : "Task Added Successfully!"});
-})
-
-// --- Edit Route ---
-// Step: 1 (edit page)
-app.get("/tasks/:id/edit", async (req, res) => {
-    let {id} = req.params;
-    let task = await Task.findById(id);
-    res.render("editTask.ejs", {task});
-})
-// Step: 2 (edit in DB)
-app.put("/tasks/:id/edit", async (req, res) => {
+// Authentication logic here
+passport.use(new LocalStrategy({usernameField: "email"}, async (email, password, done) => {
     try {
-        let {id} = req.params;
-        let {taskName} = req.body;
+        const user = await User.findOne({email: email});
         
-        await Task.findByIdAndUpdate(id, {taskName: taskName});
-    
-        res.redirect("/tasks");
-    } catch(err) {
-        res.status(500).send(err.message);
-    }
-})
-
-// --- Destroy Route ---
-app.delete("/tasks/:id", async (req, res) => {
-    let {id} = req.params;
-    await Task.findByIdAndDelete(id);
-    res.redirect("/tasks");
-})
-
-// --- Complete Button ---
-app.patch("/tasks/:id/complete", async (req, res) => {
-    try {
-        let {id} = req.params;
-        const task = await Task.findById(id);
-        if(!task) res.status(404).send("Task not found!");
-
-        let isComplete = !task.completed;
-    
-        await Task.findByIdAndUpdate(id, {completed: isComplete});
-
-        res.redirect("/tasks");
+        if(!user) {
+            return done(null, false, {message: "Invalid Credentials!"});
+        }
+        
+        const isPasswordMatch = await bcrypt.compare(password, user.password);
+        if(isPasswordMatch) {
+            return done(null, user);
+        } else {
+            console.log("password doesn't match")
+            return done(null, false, {message: "Incorrect Password!"});
+        }
+        
     }catch(err) {
-        res.status(500).send(err.message);
+        return done(err);
     }
+}))
+
+
+passport.serializeUser((user, done) => {
+    if(user) {
+        return done(null, user.id);
+    }
+    return done(null, false);
+})
+
+passport.deserializeUser(async (id, done) => {
+    const user = await User.findById(id);
+    if(user) {
+        return done(null, user);
+    }
+    return done(null, false);
+})
+
+
+// Authentication middleware
+function isLoggedIn(req, res, next) {
+    if(req.isAuthenticated()) return next();
+    return res.redirect('/login');
+}
+
+app.use("/", authRoutes);
+app.use("/tasks",isLoggedIn, taskRoutes);
+
+
+// Index route
+app.get("/", (req, res) => {
+    if(req.isAuthenticated()) {
+        res.redirect("/tasks");
+    } else {
+        res.redirect("/login");
+    }
+});
+
+// handle unknows routes
+app.use((req, res) => {
+    if(req.isAuthenticated && req.isAuthenticated()) {
+        return res.redirect('/tasks');
+    }
+
+    res.redirect('/login');
 })
 
 

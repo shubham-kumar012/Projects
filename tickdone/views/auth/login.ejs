@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickdone</title>
+</head>
+
+<body>
+    <%- include("../partials/header") %>
+
+        <div class="container-sm task-container d-flex flex-column align-items-center">
+
+            <!-- Register Success Popup -->
+            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                <div id="myToast" class="toast align-items-center text-white bg-success border-0" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            Login Successful!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Register header -->
+            <div
+                class="task-heading title-task task-container-inner d-flex justify-content-center align-items-center border rounded p-3 mb-2 w-50">
+                <h1 class="fs-1">Welcome Back!</h1>
+            </div>
+
+            <!-- Login Container -->
+            <div class="container-sm w-50 h-100 py-5 d-flex justify-content-around align-items-center border rounded flex-column">
+
+                <!-- Login Form -->
+                <form method="post" action="/login" class="w-100 h-100 d-flex justify-content-around align-items-center flex-column" >
+                    <div class="container-sm h-100 d-flex justify-content-around align-items-center flex-column">
+                        <!-- User's Email & Password -->
+                        <input type="email" name="email" placeholder="Email Address" class="form-control mb-2" required>
+                        <input type="password" name="password" placeholder="Passowrd" class="form-control mb-2" required>
+
+                        <button class="add-btn btn btn-success btn-sm mx-3 w-25" type="submit">Login</button>
+                        <div >Don't have an account? <a href="/register">Register</a></div>
+                    </div>
+                </form>
+
+                <!-- OR Seperator -->
+                <div class="container-sm d-flex align-items-center my-3">
+                    <div class="flex-grow-1 border-top border-secondary"></div>
+                    <span class="px-3 text-secondary">OR</span>
+                    <div class="flex-grow-1 border-top border-secondary"></div>
+                </div>
+
+                <!-- Guest Login Form -->
+                <form action="/guest-login" method="POST" class="container-sm d-flex justify-content-center">
+                    <button type="submit" class="btn btn-secondary btn-sm mx-3 w-25">Guest Login</button>
+                </form>
+            </div>
+            
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/add.js"></script>
+</body>
+
+</html>
