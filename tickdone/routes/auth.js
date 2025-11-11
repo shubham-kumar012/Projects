@@ -39,11 +39,11 @@ router.post("/login", localAuthMiddleware);
 // Guest Login Route
 router.post("/guest-login", async (req, res) => {
     try {
-        const guestUser = await User.findOne({ email: "guest@gmail.com"});
+        let guestUser = await User.findOne({ email: "guest@gmail.com"});
 
         if(!guestUser) {
             const hashed = await bcrypt.hash("guest-password", 10);
-            const guestUser = new User({
+            guestUser = new User({
                 firstName: "guest",
                 lastName: "user",
                 email: "guest@gmail.com",
