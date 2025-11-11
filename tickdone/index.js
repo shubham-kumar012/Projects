@@ -42,6 +42,7 @@ main()
 })
 
 async function main() {
+    console.log("DB URL from Render:", dbUrl);
     await mongoose.connect(dbUrl);
 }
 
