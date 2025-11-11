@@ -12,7 +12,7 @@ const User = require("./models/user.js");
 
 // Setup .env file
 const dotenv = require("dotenv");
-dotenv.config({path: path.join(__dirname, ".env") });
+dotenv.config();
 
 // routes
 const taskRoutes = require("./routes/tasks.js");
